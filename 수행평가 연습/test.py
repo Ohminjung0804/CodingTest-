@@ -1,26 +1,38 @@
+# def solution(K, words):
+#     # 여기에 코드를 작성해주세요.
+#     # answer = 0
+#     # memo = ''
+#     # space = 0
+#     # for word in words:
+#     #     if len(word) > (K - len(memo + word)+space):
+#     #         answer += 1
+#     #         memo = word
+#     #         space = 0
+#     #     else:
+#     #         memo += word
+#     #         space += 1
+#     #         if word == words[-1]:
+#     #             answer += 1
+#     # return answer
+#     answer = 1
+#     memol = 0
+#     for i in range(len(words)):
+#         memol += len(words[i])+1
+#         if(memol > K+1):
+#             answer += 1
+#             memol = len(words[i])+1
+#     return answer
+
 def solution(K, words):
     # 여기에 코드를 작성해주세요.
-    # answer = 0
-    # memo = ''
-    # space = 0
-    # for word in words:
-    #     if len(word) > (K - len(memo + word)+space):
-    #         answer += 1
-    #         memo = word
-    #         space = 0
-    #     else:
-    #         memo += word
-    #         space += 1
-    #         if word == words[-1]:
-    #             answer += 1
-    # return answer
-    answer = 1
-    memol = 0
-    for i in range(len(words)):
-        memol += len(words[i])+1
-        if(memol > K+1):
+    answer = 0
+    current = 0
+    for w in words:
+        if current + len(w) > K:
             answer += 1
-            memol = len(words[i])+1
+            current = len(w) + 1
+        else:
+            current = current + len(w) + 1
     return answer
 
 
